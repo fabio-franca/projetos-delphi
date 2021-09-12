@@ -73,6 +73,7 @@ object Form_logon: TForm_logon
     Width = 193
     Height = 24
     Hint = 'Insira o usu'#225'rio'
+    MaxLength = 30
     TabOrder = 0
   end
   object edt_senha: TEdit
@@ -81,6 +82,8 @@ object Form_logon: TForm_logon
     Width = 193
     Height = 24
     Hint = 'Insira a senha'
+    MaxLength = 10
+    PasswordChar = '*'
     TabOrder = 1
   end
   object btn_ok: TBitBtn
@@ -95,6 +98,7 @@ object Form_logon: TForm_logon
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    OnClick = btn_okClick
     Kind = bkOK
   end
   object btn_fechar: TBitBtn

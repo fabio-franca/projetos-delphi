@@ -11,6 +11,7 @@ object Form_menu: TForm_menu
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object btn_cadcursos: TBitBtn
@@ -54,6 +55,7 @@ object Form_menu: TForm_menu
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    OnClick = btn_fecharClick
     Kind = bkCancel
   end
   object btn_cadinstrutores: TBitBtn
@@ -310,5 +312,11 @@ object Form_menu: TForm_menu
       00778888887777000000F777F0077777777770000000F7777F00777777770000
       0000FF7777F000777700080000008FF7777FF00000088800000078FF77777778
       888888000000}
+  end
+  object ADOQuery_aux: TADOQuery
+    Connection = Form_logon.ConexaoBD
+    Parameters = <>
+    Left = 608
+    Top = 416
   end
 end
