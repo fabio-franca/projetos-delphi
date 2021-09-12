@@ -1,0 +1,52 @@
+unit Unit_logon;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DB, ADODB;
+
+type
+  TForm_logon = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    edt_usuario: TEdit;
+    edt_senha: TEdit;
+    btn_ok: TBitBtn;
+    btn_fechar: TBitBtn;
+    ConexaoBD: TADOConnection;
+    procedure btn_fecharClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    function autenticacao: boolean;
+  end;
+
+var
+  Form_logon: TForm_logon;
+
+implementation
+
+{$R *.dfm}
+
+function TForm_logon.autenticacao: boolean;
+begin
+  ConexaoBD.ConnectionString:= ' Provider=SQLOLEDB.1; '+
+                               ' Initial Catalog=Academico; '+
+                               ' Data Source=FabioFranca    ';
+  try
+    ConexaoBD.Open('admin_academico','sysacademico');
+    result:= true;
+  except
+    Showmessage('Não foi possível se conectar ao servidor!');
+    result:= false;
+  end;
+end;
+
+procedure TForm_logon.btn_fecharClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+end.

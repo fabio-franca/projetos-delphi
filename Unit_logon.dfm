@@ -1,0 +1,126 @@
+object Form_logon: TForm_logon
+  Left = 439
+  Top = 276
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Logon'
+  ClientHeight = 183
+  ClientWidth = 461
+  Color = clTeal
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Verdana'
+  Font.Style = []
+  Icon.Data = {
+    0000010001002020100000000000E80200001600000028000000200000004000
+    0000010004000000000080020000000000000000000000000000000000000000
+    0000000080000080000000808000800000008000800080800000C0C0C0008080
+    80000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF000000
+    0000000000000000000000000000000000004000000000000078000000000000
+    0000400008C00000777888000400000000040C88088C00777977888800000000
+    0004C87807F077797FF8888888000000004CC8780770727FF000778888800000
+    04CC877807F07FF00B330077888000044CC8FF780770F00BBB3333007780444C
+    CC8FF77807F70BBBBF73333300704CCC88FFFF78077F3BBFFBB7333333004C88
+    8FFFF77807F73FFB37BB733300004C8F8FFFFF78077F3B73737BB73033304C8F
+    8FFFF77807F783B73737BB703BB04C8F8FFFFF78077FF83B737B80B0BBB34C8F
+    8FFFF77807F78F000BB00308BB304C8F8FFFFF78077FF83BB0B03BBBB3004C8F
+    8FFFF77807F78F3BB808BBB330004C8F8FFFFF78077FF8833BBBB33CC0004C8F
+    8FFFF77807F78FF8833338BCC0004C8F8FFFFF78077FF88FFFFFF8FCC0004C8F
+    8FFFF77807F78FF8888FF8BCC0004C8F8FFFFF78077FF88FFFFFF8FCC0004C8F
+    8FFFF77807FF8FF888FFF8CCC0004C8F8FFFFF78888FF88FFFFFF84444004C8F
+    8FFFF778008FFFF8888FF80000004C8F8FFFFF7800088FFFFFFFF80000004C8F
+    8FFFF7800000088FFFFFF8000000448F8FFFFF8000000008888888000000008F
+    8FFFF8000000000000000000000000888FFF8000000000000000000000000000
+    8FF800000000000000000000000000008880000000000000000000000000FFFF
+    F87FFF41E01FFF000003FE000001FE000000FC000000F8000000E00000000000
+    0000000000010000000000000000000000000000000000000001000000030000
+    000300000003000000030000000300000003000000030000000300000003000C
+    003F000E003F001F803F001FE03FC03FFFFFC07FFFFFF0FFFFFFF1FFFFFF}
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 16
+  object Label1: TLabel
+    Left = 24
+    Top = 32
+    Width = 48
+    Height = 16
+    Caption = 'Usu'#225'rio'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindow
+    Font.Height = -13
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 248
+    Top = 32
+    Width = 41
+    Height = 16
+    Caption = 'Senha'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindow
+    Font.Height = -13
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
+  end
+  object edt_usuario: TEdit
+    Left = 24
+    Top = 56
+    Width = 193
+    Height = 24
+    Hint = 'Insira o usu'#225'rio'
+    TabOrder = 0
+  end
+  object edt_senha: TEdit
+    Left = 248
+    Top = 56
+    Width = 193
+    Height = 24
+    Hint = 'Insira a senha'
+    TabOrder = 1
+  end
+  object btn_ok: TBitBtn
+    Left = 144
+    Top = 96
+    Width = 169
+    Height = 33
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clGreen
+    Font.Height = -13
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+    Kind = bkOK
+  end
+  object btn_fechar: TBitBtn
+    Left = 144
+    Top = 136
+    Width = 169
+    Height = 33
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -13
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+    OnClick = btn_fecharClick
+    Kind = bkCancel
+  end
+  object ConexaoBD: TADOConnection
+    LoginPrompt = False
+    Left = 392
+    Top = 152
+  end
+  object ADOQuery_aux: TADOQuery
+    Connection = ConexaoBD
+    Parameters = <>
+    Left = 424
+    Top = 152
+  end
+end
