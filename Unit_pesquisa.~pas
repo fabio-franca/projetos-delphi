@@ -1,0 +1,35 @@
+unit Unit_pesquisa;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ADODB, StdCtrls, Buttons, Grids, DBGrids;
+
+type
+  TForm_pesquisa = class(TForm)
+    Label1: TLabel;
+    edt_nome: TEdit;
+    grid_pesquisa: TDBGrid;
+    btn_pesquisar: TBitBtn;
+    btn_limpar: TBitBtn;
+    btn_selecionar: TBitBtn;
+    btn_cancelar: TBitBtn;
+    ADOQuery_pesquisa: TADOQuery;
+    ds_pesquisa: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form_pesquisa: TForm_pesquisa;
+
+implementation
+
+uses Unit_logon;
+
+{$R *.dfm}
+
+end.

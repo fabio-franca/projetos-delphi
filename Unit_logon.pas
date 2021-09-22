@@ -27,6 +27,7 @@ type
     function validacao(usuario, senha : string) : boolean;
     function criptografa(texto: string) : string;
     function descriptografa(texto: string) : string;
+    function ErroBD(msg:string; texto:string): string;
   end;
 
 var
@@ -126,6 +127,26 @@ begin
     begin
       hide;
       Form_menu.showmodal;
+    end;
+end;
+
+function TForm_logon.ErroBD(msg, texto: string): string;
+var
+  i, tam_msg, tam_texto: integer;
+  pedaco: string;
+begin
+  tam_msg:= length(msg);
+  tam_texto:= length(texto);
+  for i:=1 to tam_msg do
+    begin
+      pedaco:= copy(msg,i,tam_texto);
+      if pedaco = texto then
+        begin
+          result:='Sim';
+          break;
+        end
+      else
+        result:= 'Não';
     end;
 end;
 

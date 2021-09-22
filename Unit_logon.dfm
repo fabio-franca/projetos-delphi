@@ -1,6 +1,6 @@
 object Form_logon: TForm_logon
-  Left = 439
-  Top = 276
+  Left = 458
+  Top = 282
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Logon'
@@ -106,6 +106,7 @@ object Form_logon: TForm_logon
     Top = 136
     Width = 169
     Height = 33
+    Caption = 'Cancelar'
     Font.Charset = ANSI_CHARSET
     Font.Color = clMaroon
     Font.Height = -13

@@ -22,7 +22,18 @@ type
     edt_nome: TEdit;
     edt_senha: TEdit;
     ADOQuery_aux: TADOQuery;
+    btn_localizar: TBitBtn;
+    btn_permissoes: TBitBtn;
     procedure btn_novoClick(Sender: TObject);
+    procedure btn_salvarClick(Sender: TObject);
+    procedure btn_alterarClick(Sender: TObject);
+    procedure btn_cancelarClick(Sender: TObject);
+    procedure btn_excluirClick(Sender: TObject);
+    procedure btn_fecharClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btn_localizarClick(Sender: TObject);
+    procedure btn_permissoesClick(Sender: TObject);
+    //procedure btn_fecharClick(Sender: TObject);
     //procedure btn_novoClick(Sender: TObject);
   private
     { Private declarations }
@@ -41,7 +52,7 @@ var
 
 implementation
 
-uses Unit_logon;
+uses Unit_logon, Unit_pesquisa, Unit_permissoes;
 
 {$R *.dfm}
 
@@ -130,6 +141,170 @@ begin
   limpar_campos; //Limpa os campos
   pk:= '';  //Limpa a chave
   habilita_salvar(sender); //Habilita salvar ou cancelar
+end;
+
+procedure TForm_usuarios.btn_salvarClick(Sender: TObject);
+  var
+    deu_erro: boolean;
+    senha: string;
+begin
+  if(edt_usuario.Text='')or(edt_nome.Text='')or(edt_senha.Text='')then
+    begin
+      Showmessage('Preencha todos os campos!');
+    end
+  else
+    begin
+      senha:= Form_logon.criptografa(edt_senha.Text);
+
+      if operacao = 'novo' then
+        adoquery_aux.SQL.Text:=' INSERT INTO USUARIOS VALUES '+
+                               ' ('+ QuotedStr(edt_usuario.Text)+
+                               ','+ QuotedStr(edt_nome.Text)+
+                               ','+ QuotedStr(senha)+ ')'
+
+      else if operacao = 'alterar' then
+        adoquery_aux.SQL.Text:=' UPDATE USUARIOS '+
+                               ' SET USUARIO ='+ QuotedStr(edt_usuario.Text)+
+                               ', NOME ='+ QuotedStr(edt_nome.Text)+
+                               ', SENHA ='+ QuotedStr(senha)+
+                               ' WHERE USUARIO = '+ QuotedStr(pk);
+
+      Form_logon.ConexaoBD.BeginTrans;
+      try
+        ADOQuery_aux.ExecSQL;
+        deu_erro:= false;
+      except
+        on E: Exception do
+        begin
+          deu_erro:= true;
+          if Form_logon.ErroBD(E.Message,'PK__USUARIOS__9AFF8FC721B6055D')= 'Sim' then
+            Showmessage('Usuário já cadastrado!')
+          else if Form_logon.ErroBD(E.Message,'FK_PERMISSOES_USUARIO')='Sim' then
+            Showmessage('Existem permissões cadastradas para este usuário!')
+          else
+            Showmessage('Ocorreu o seguinte erro: '+ E.Message);
+        end;
+    end;
+
+  if deu_erro = true then
+    begin
+      Form_logon.ConexaoBD.RollbackTrans;
+    end
+  else
+    begin
+      Form_logon.ConexaoBD.CommitTrans;
+      pk:= edt_usuario.Text;
+      desabilita_salvar(sender);
+      bloqueia_campos;
+    end;
+  end;
+end;
+procedure TForm_usuarios.btn_alterarClick(Sender: TObject);
+begin
+  if pk = '' then
+    Showmessage('Impossível alterar!')
+  else
+    begin
+      libera_campos;
+      habilita_salvar(sender);
+    end
+end;
+
+procedure TForm_usuarios.btn_cancelarClick(Sender: TObject);
+begin
+  if operacao = 'novo' then
+    limpar_campos;
+  desabilita_salvar(sender);
+  bloqueia_campos;
+end;
+
+procedure TForm_usuarios.btn_excluirClick(Sender: TObject);
+var deu_erro: boolean;
+begin
+  if pk = '' then
+    Showmessage('Impossível Excluir!')
+  else
+    begin
+      ADOQuery_aux.SQL.Text:= ' DELETE FROM USUARIOS ' +
+                              ' WHERE USUARIO = ' + QuotedStr(pk);
+      Form_logon.ConexaoBD.BeginTrans;
+
+      try
+        ADOQuery_aux.ExecSQL;
+        deu_erro:= false;
+      except
+        on E: Exception do
+        begin
+          deu_erro:= true;
+          if Form_logon.ErroBD(E.Message,'FK_PERMISSOES_USUARIO') = 'Sim' then
+            Showmessage('Existem permissões cadastradas para este usuário!')
+          else
+            Showmessage('Ocorreu o seguinte erro: ' + E.Message)
+        end;
+    end;
+
+    if deu_erro = true then
+      begin
+        Form_logon.ConexaoBD.RollbackTrans;
+      end
+    else
+      begin
+        Form_logon.ConexaoBD.CommitTrans;
+        pk := '';
+        desabilita_salvar(sender);
+        limpar_campos;
+        bloqueia_campos;
+      end;
+  end;
+end;
+
+procedure TForm_usuarios.btn_fecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TForm_usuarios.FormShow(Sender: TObject);
+begin
+  pk:= '';
+  operacao:= '';
+  limpar_campos;
+  bloqueia_campos;
+  desabilita_salvar(sender);
+end;
+
+procedure TForm_usuarios.btn_localizarClick(Sender: TObject);
+var senha: string;
+begin
+  limpar_campos;
+  bloqueia_campos;
+  desabilita_salvar(sender);
+
+  Form_pesquisa.sql_pesquisa:= ' SELECT USUARIO, NOME FROM USUARIOS ';
+  Form_pesquisa.ShowModal;
+  if Form_pesquisa.chave <> '' then
+    begin
+      pk:= Form_pesquisa.chave;
+      ADOQuery_aux.SQL.Text:= ' SELECT * FROM USUARIOS '+
+                              ' WHERE USUARIO = '+ QuotedStr(pk);
+      ADOQuery_aux.Open;
+      edt_usuario.Text:= ADOQuery_aux.fieldbyname('USUARIO').AsString;
+      edt_nome.Text:= ADOQuery_aux.fieldbyname('NOME').AsString;
+      senha:= ADOQuery_aux.fieldbyname('SENHA').AsString;
+      edt_senha.Text:= Form_logon.descriptografa(senha);
+    end;
+end;
+
+procedure TForm_usuarios.btn_permissoesClick(Sender: TObject);
+begin
+  if pk = '' then
+    Showmessage('Usuário inválido!')
+  else
+    begin
+      bloqueia_campos;
+      desabilita_salvar(sender);
+      Form_permissoes.usuario:= pk;
+      Form_permissoes.ShowModal;
+    end;
 end;
 
 end.

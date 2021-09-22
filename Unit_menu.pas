@@ -22,6 +22,11 @@ type
     ADOQuery_aux: TADOQuery;
     procedure FormShow(Sender: TObject);
     procedure btn_fecharClick(Sender: TObject);
+    procedure btn_controleClick(Sender: TObject);
+    procedure btn_cadcursosClick(Sender: TObject);
+    procedure btn_cadinstrutoresClick(Sender: TObject);
+    procedure btn_cadturmasClick(Sender: TObject);
+    procedure btn_cadalunosClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,7 +39,8 @@ var
 
 implementation
 
-uses Unit_logon;
+uses Unit_logon, Unit_usuarios, Unit_cursos, Unit_instrutores, Unit_turmas,
+  Unit_alunos;
 
 {$R *.dfm}
 
@@ -107,6 +113,31 @@ end;
 procedure TForm_menu.btn_fecharClick(Sender: TObject);
 begin
   Application.Terminate;
+end;
+
+procedure TForm_menu.btn_controleClick(Sender: TObject);
+begin
+  Form_usuarios.ShowModal;
+end;
+
+procedure TForm_menu.btn_cadcursosClick(Sender: TObject);
+begin
+  Form_cursos.showmodal;
+end;
+
+procedure TForm_menu.btn_cadinstrutoresClick(Sender: TObject);
+begin
+  Form_instrutores.showmodal;
+end;
+
+procedure TForm_menu.btn_cadturmasClick(Sender: TObject);
+begin
+  Form_turmas.showmodal;
+end;
+
+procedure TForm_menu.btn_cadalunosClick(Sender: TObject);
+begin
+  Form_alunos.showmodal;
 end;
 
 end.

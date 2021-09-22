@@ -27,6 +27,7 @@ object Form_menu: TForm_menu
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    OnClick = btn_cadcursosClick
     Glyph.Data = {
       76010000424D7601000000000000760000002800000020000000100000000100
       04000000000000010000120B0000120B00001000000000000000000000000000
@@ -71,6 +72,7 @@ object Form_menu: TForm_menu
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    OnClick = btn_cadinstrutoresClick
     Glyph.Data = {
       56020000424D560200000000000076000000280000001E0000001E0000000100
       040000000000E001000000000000000000001000000000000000000000000000
@@ -105,6 +107,7 @@ object Form_menu: TForm_menu
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    OnClick = btn_cadturmasClick
     Glyph.Data = {
       4E010000424D4E01000000000000760000002800000012000000120000000100
       040000000000D800000000000000000000001000000010000000000000000000
@@ -131,6 +134,7 @@ object Form_menu: TForm_menu
     Font.Style = []
     ParentFont = False
     TabOrder = 4
+    OnClick = btn_cadalunosClick
     Glyph.Data = {
       96010000424D9601000000000000760000002800000018000000180000000100
       0400000000002001000000000000000000001000000010000000000000000000
@@ -300,6 +304,7 @@ object Form_menu: TForm_menu
     Font.Style = []
     ParentFont = False
     TabOrder = 10
+    OnClick = btn_controleClick
     Glyph.Data = {
       42010000424D4201000000000000760000002800000012000000110000000100
       040000000000CC00000000000000000000001000000010000000000000000000
