@@ -304,7 +304,7 @@ begin
       desabilita_salvar(sender);
       Form_permissoes.usuario:= pk;
       Form_permissoes.ShowModal;
-    end
+    end;
 end;
 
 end.

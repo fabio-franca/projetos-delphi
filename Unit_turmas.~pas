@@ -162,7 +162,7 @@ begin
                               ' WHERE COD_CURSO = ' + QuotedStr(cod_curso);
 
       ADOQuery_aux.Open;
-      edt_curso.Text:= ADOQuery_aux.fieldbyname('NOME').AsString;
+      edt_curso.Text := ADOQuery_aux.fieldbyname('NOME').AsString;
     end;
 end;
 
@@ -296,7 +296,7 @@ begin
   else
     begin
       ADOQuery_aux.SQL.Text:= ' DELETE FROM TURMAS '+
-                              ' WHERE COD_TURMA '+ QuotedStr(pk);
+                              ' WHERE COD_TURMA ='+ QuotedStr(pk);
 
       Form_logon.ConexaoBD.BeginTrans;
       try

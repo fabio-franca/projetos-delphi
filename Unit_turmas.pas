@@ -162,7 +162,7 @@ begin
                               ' WHERE COD_CURSO = ' + QuotedStr(cod_curso);
 
       ADOQuery_aux.Open;
-      edt_curso.Text:= ADOQuery_aux.fieldbyname('NOME').AsString;
+      edt_curso.Text := ADOQuery_aux.fieldbyname('NOME').AsString;
     end;
 end;
 

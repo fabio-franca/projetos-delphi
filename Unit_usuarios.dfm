@@ -4,7 +4,7 @@ object Form_usuarios: TForm_usuarios
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Usu'#225'rios'
-  ClientHeight = 303
+  ClientHeight = 238
   ClientWidth = 624
   Color = clTeal
   Font.Charset = ANSI_CHARSET
@@ -19,7 +19,7 @@ object Form_usuarios: TForm_usuarios
   TextHeight = 16
   object Bevel1: TBevel
     Left = 0
-    Top = 8
+    Top = 0
     Width = 625
     Height = 50
   end
@@ -50,8 +50,8 @@ object Form_usuarios: TForm_usuarios
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 40
-    Top = 224
+    Left = 432
+    Top = 152
     Width = 41
     Height = 16
     Caption = 'Senha'
@@ -64,13 +64,13 @@ object Form_usuarios: TForm_usuarios
   end
   object btn_novo: TBitBtn
     Left = 8
-    Top = 16
+    Top = 8
     Width = 89
     Height = 33
     Hint = 'Incluir novo usu'#225'rio'
     Caption = 'Novo'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
@@ -94,12 +94,12 @@ object Form_usuarios: TForm_usuarios
   end
   object btn_salvar: TBitBtn
     Left = 112
-    Top = 16
+    Top = 8
     Width = 89
     Height = 33
     Caption = 'Salvar'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
@@ -123,12 +123,12 @@ object Form_usuarios: TForm_usuarios
   end
   object btn_alterar: TBitBtn
     Left = 216
-    Top = 16
+    Top = 8
     Width = 89
     Height = 33
     Caption = 'Alterar'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
@@ -152,12 +152,12 @@ object Form_usuarios: TForm_usuarios
   end
   object btn_cancelar: TBitBtn
     Left = 320
-    Top = 16
+    Top = 8
     Width = 89
     Height = 33
     Caption = 'Cancelar'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
@@ -168,12 +168,12 @@ object Form_usuarios: TForm_usuarios
   end
   object btn_excluir: TBitBtn
     Left = 424
-    Top = 16
+    Top = 8
     Width = 89
     Height = 33
     Caption = 'Excluir'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
@@ -197,12 +197,12 @@ object Form_usuarios: TForm_usuarios
   end
   object btn_fechar: TBitBtn
     Left = 528
-    Top = 16
+    Top = 8
     Width = 89
     Height = 33
     Caption = 'Fechar'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
@@ -241,8 +241,8 @@ object Form_usuarios: TForm_usuarios
     TabOrder = 7
   end
   object edt_senha: TEdit
-    Left = 40
-    Top = 248
+    Left = 432
+    Top = 176
     Width = 145
     Height = 24
     MaxLength = 10
@@ -284,7 +284,7 @@ object Form_usuarios: TForm_usuarios
   object ADOQuery_aux: TADOQuery
     Connection = Form_logon.ConexaoBD
     Parameters = <>
-    Left = 592
-    Top = 272
+    Left = 584
+    Top = 200
   end
 end

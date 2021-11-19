@@ -13,6 +13,7 @@ object Form_pesquisa: TForm_pesquisa
   Font.Name = 'Verdana'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 16
   object Label1: TLabel
@@ -32,7 +33,7 @@ object Form_pesquisa: TForm_pesquisa
     Left = 32
     Top = 40
     Width = 233
-    Height = 25
+    Height = 24
     TabOrder = 0
   end
   object grid_pesquisa: TDBGrid
@@ -56,6 +57,7 @@ object Form_pesquisa: TForm_pesquisa
     Height = 25
     Caption = 'Pesquisar'
     TabOrder = 2
+    OnClick = btn_pesquisarClick
     Glyph.Data = {
       42010000424D4201000000000000760000002800000011000000110000000100
       040000000000CC00000000000000000000001000000010000000000000000000
@@ -76,6 +78,7 @@ object Form_pesquisa: TForm_pesquisa
     Height = 25
     Caption = 'Limpar'
     TabOrder = 3
+    OnClick = btn_limparClick
     Glyph.Data = {
       76010000424D7601000000000000760000002800000020000000100000000100
       04000000000000010000120B0000120B00001000000000000000000000000000
@@ -92,12 +95,13 @@ object Form_pesquisa: TForm_pesquisa
     NumGlyphs = 2
   end
   object btn_selecionar: TBitBtn
-    Left = 120
+    Left = 104
     Top = 224
-    Width = 97
+    Width = 113
     Height = 33
     Caption = 'Selecionar'
     TabOrder = 4
+    OnClick = btn_selecionarClick
     Glyph.Data = {
       16020000424D160200000000000076000000280000001A0000001A0000000100
       040000000000A001000000000000000000001000000000000000000000000000
@@ -120,10 +124,11 @@ object Form_pesquisa: TForm_pesquisa
   object btn_cancelar: TBitBtn
     Left = 232
     Top = 224
-    Width = 97
+    Width = 113
     Height = 33
     Caption = 'Cancelar'
     TabOrder = 5
+    OnClick = btn_cancelarClick
     Glyph.Data = {
       66010000424D6601000000000000760000002800000014000000140000000100
       040000000000F000000000000000000000001000000010000000000000000000

@@ -163,6 +163,7 @@ object Form_menu: TForm_menu
     Font.Style = []
     ParentFont = False
     TabOrder = 5
+    OnClick = btn_matriculasClick
     Glyph.Data = {
       42010000424D4201000000000000760000002800000011000000110000000100
       040000000000CC00000000000000000000001000000010000000000000000000
@@ -189,6 +190,7 @@ object Form_menu: TForm_menu
     Font.Style = []
     ParentFont = False
     TabOrder = 6
+    OnClick = btn_aulasClick
     Glyph.Data = {
       06020000424D0602000000000000760000002800000028000000140000000100
       0400000000009001000000000000000000001000000000000000000000000000
@@ -222,6 +224,7 @@ object Form_menu: TForm_menu
     Font.Style = []
     ParentFont = False
     TabOrder = 7
+    OnClick = btn_frequenciasClick
     Glyph.Data = {
       76010000424D7601000000000000760000002800000020000000100000000100
       04000000000000010000120B0000120B00001000000000000000000000000000
@@ -250,6 +253,7 @@ object Form_menu: TForm_menu
     Font.Style = []
     ParentFont = False
     TabOrder = 8
+    OnClick = btn_paginstrutoresClick
     Glyph.Data = {
       4E010000424D4E01000000000000760000002800000012000000120000000100
       040000000000D800000000000000000000001000000010000000000000000000
@@ -276,6 +280,7 @@ object Form_menu: TForm_menu
     Font.Style = []
     ParentFont = False
     TabOrder = 9
+    OnClick = btn_relatoriosClick
     Glyph.Data = {
       76010000424D7601000000000000760000002800000020000000100000000100
       04000000000000010000120B0000120B00001000000000000000000000000000

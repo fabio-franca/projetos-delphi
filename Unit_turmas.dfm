@@ -82,7 +82,7 @@ object Form_turmas: TForm_turmas
     Height = 33
     Caption = 'Novo'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
@@ -111,7 +111,7 @@ object Form_turmas: TForm_turmas
     Height = 33
     Caption = 'Salvar'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
@@ -140,7 +140,7 @@ object Form_turmas: TForm_turmas
     Height = 33
     Caption = 'Alterar'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
@@ -169,7 +169,7 @@ object Form_turmas: TForm_turmas
     Height = 33
     Caption = 'Cancelar'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
@@ -198,7 +198,7 @@ object Form_turmas: TForm_turmas
     Height = 33
     Caption = 'Excluir'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
@@ -227,7 +227,7 @@ object Form_turmas: TForm_turmas
     Height = 33
     Caption = 'Fechar'
     Font.Charset = ANSI_CHARSET
-    Font.Color = cl3DDkShadow
+    Font.Color = clBlack
     Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []

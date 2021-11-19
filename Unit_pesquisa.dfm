@@ -1,11 +1,11 @@
 object Form_pesquisa: TForm_pesquisa
-  Left = 489
-  Top = 268
+  Left = 380
+  Top = 242
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Form_pesquisa'
   ClientHeight = 271
-  ClientWidth = 478
+  ClientWidth = 703
   Color = clTeal
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -33,13 +33,13 @@ object Form_pesquisa: TForm_pesquisa
     Left = 32
     Top = 40
     Width = 233
-    Height = 25
+    Height = 24
     TabOrder = 0
   end
   object grid_pesquisa: TDBGrid
     Left = 32
     Top = 88
-    Width = 417
+    Width = 641
     Height = 120
     DataSource = ds_pesquisa
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]

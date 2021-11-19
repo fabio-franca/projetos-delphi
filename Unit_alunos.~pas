@@ -251,17 +251,9 @@ end;
 
 procedure TForm_alunos.btn_excluirClick(Sender: TObject);
 var
-  //pergunta: string;
   deu_erro: boolean;
 
 begin
-  Form_pergunta.ShowModal;
-  Form_pergunta.habilita_excluir(sender);
-  if Form_pergunta.pergunta = 'Sim' then
-    Form_pergunta.Close
-  else if Form_pergunta.pergunta = 'Não' then
-     Form_alunos.Close;
-
      if pk = '' then
        Showmessage('Impossível excluir!')
      else
